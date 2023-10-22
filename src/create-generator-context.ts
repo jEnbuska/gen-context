@@ -10,13 +10,10 @@ import { isAnyGeneratorFunction } from "./is-any-generator-function.ts";
 
 export function createGeneratorContext<
   const Name extends string,
-  Provider extends (...args: any[]) => any,
->(
-  name: Name,
-): GeneratorContext<Name, Parameters<Provider>, ReturnType<Provider>> {
+  Return,
+  Args extends any[] = [],
+>(name: Name): GeneratorContext<Name, Args, Return> {
   const context = Symbol(name);
-  type Return = ReturnType<Provider>;
-  type Args = Parameters<Provider>;
   const createProvider: CreateGeneratorContextProvider<Args, Return> = (
     provider,
   ) => {

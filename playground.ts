@@ -6,23 +6,24 @@ import {
 
 const { createCountProvider, getCountContext } = createGeneratorContext<
   "count",
-  () => number
+  number
 >("count");
 
 const { createAlphabetProvider, getAlphabetContext } = createGeneratorContext<
   "alphabet",
-  (n: number) => string
+  string,
+  [number]
 >("alphabet");
 
 type Cache = Record<string, string>;
 const { getCacheContext, createCacheProvider } = createGeneratorContext<
   "cache",
-  () => Cache
+  Cache
 >("cache");
 
 const { getProfileContext, createProfileProvider } = createGeneratorContext<
   "profile",
-  () => { name: string }
+  { name: string }
 >("profile");
 
 let count = 0;
