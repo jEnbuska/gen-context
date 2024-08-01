@@ -12,4 +12,4 @@ To run:
 bun run playground.ts
 ```
 
-# Proof of concept for defining react style context in regular typescript projects using generator functions
+# WIP Proof of concept for defining react style context in regular typescript projects using generator functions
